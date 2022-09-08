@@ -1,0 +1,29 @@
+version: '3.8'
+
+networks:
+  default:
+    external:
+      name: backend
+
+services:
+
+  basket.db:
+    image: redis:alpine
+    container_name: basket.db
+    restart: always
+    ports:
+      - "6379:6379"
+
+  basket.webapi:
+    image: ${DOCKER_REGISTRY-}basket.webapi
+    container_name: basket.webapi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CacheSettings:ConnectionString=basket.db:6379"
+    ports:
+      - 7700:80
+    depends_on:
+      - basket.db

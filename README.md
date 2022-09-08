@@ -20,3 +20,10 @@
     * ```redis-cli```
       * ```type key```
       * ```hgetall key```
+
+## Build do Cenário com Docker-Compose
+
+* ```docker network create backend```
+* ```docker-compose build --no-cache```
+* ```docker-compose up -d```
+* ```docker-compose down --rmi all -v```
