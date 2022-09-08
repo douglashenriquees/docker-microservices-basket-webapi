@@ -12,3 +12,11 @@
 * ```dotnet run --project solution_name.template_project```
 * ```app.UseSwaggerUI(x => { x.SwaggerEndpoint("/swagger/v1/swagger.json", "V1"); x.RoutePrefix = ""; });```
   * modificação na classe **Program.cs** para redirecionar ao **swagger** acessando a url exposta na api
+
+## Executando o Container do Redis
+
+* ```docker run -d -p 6379:6379 redis```
+  * ```docker container exec id_container sh```
+    * ```redis-cli```
+      * ```type key```
+      * ```hgetall key```
