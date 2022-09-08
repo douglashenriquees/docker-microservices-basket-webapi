@@ -1,12 +1,12 @@
+using Basket.WebApi.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddStackExchangeRedisCache(options =>
-{
-    options.Configuration = builder.Configuration["CacheSettings:ConnectionString"];
-});
+builder.Services.AddStackExchangeRedisCache(options => { options.Configuration = builder.Configuration["CacheSettings:ConnectionString"]; });
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 
 var app = builder.Build();
 
