@@ -12,7 +12,7 @@ builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 
 builder.Services.AddScoped<DiscountGrpcService>();
 builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
-    options.Address = new Uri(builder.Configuration["CrpcSettings:DiscountUrl"]));
+    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]));
 
 var app = builder.Build();
 
