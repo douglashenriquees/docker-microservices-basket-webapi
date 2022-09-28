@@ -21,6 +21,12 @@
       * ```type key```
       * ```hgetall key```
 
+## Packages Grpc Client
+
+* ```dotnet add package Grpc.Net.Client```
+* ```dotnet add package Google.Protobuf```
+* ```dotnet add package Grpc.Tools```
+
 ## Build do Cenário com Docker-Compose
 
 * ```docker network create backend```
